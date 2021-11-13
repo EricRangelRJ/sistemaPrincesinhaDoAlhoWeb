@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from './views/login/login.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+        { path: '', component: LoginComponent}  //No path raiz do projeto será direcionado para o componente de login 
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
