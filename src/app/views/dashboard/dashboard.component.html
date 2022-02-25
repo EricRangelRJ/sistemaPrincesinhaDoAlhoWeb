@@ -1,0 +1,27 @@
+<div>
+    <mat-toolbar color="primary">
+        <span>Sistema Princesinha do Alho</span>
+    
+    </mat-toolbar>
+   
+</div>
+
+
+    <mat-drawer-container class="example-container" autosize>
+        <mat-drawer #drawer class="example-sidenav" mode="side">
+          <p>MENU</p>
+          <mat-card >Cadastros</mat-card>
+          <mat-card >Consultas</mat-card>
+          <mat-card >Relatórios</mat-card>
+        </mat-drawer>
+      
+        
+
+        <div class="example-sidenav-content">
+          <button type="button" mat-button (click)="drawer.toggle()">
+            Menu Principal
+          </button>
+        </div>
+      
+      </mat-drawer-container>
+

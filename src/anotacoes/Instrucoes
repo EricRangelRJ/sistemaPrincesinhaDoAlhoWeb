@@ -1,0 +1,162 @@
+*Importando o componente
+
+--> app.module.ts
+
+
+*Criando todos os componentes das páginas
+
+Criando a pasta: views (Comportar os componentes das páginas)
+
+-->Página de login: ng g c login
+
+Criar formulário
+Para usar o componente precisa pegar o selector na classe typescript 
+
+Importar o botão
+
+
+precisa importar o componente do botão no app.module.ts
+
+
+importando biblioteca de icones
+no angular json: node_modules/@fortawesome/fortawesome-free/css/all.min.css",
+
+https://fontawesome.com/
+
+Pasta para importar plano de fundo: src/app/assets
+
+
+Aula 07
+
+app-routing.module.ts --> tem o array de rotas das telas
+
+const routes: Routes = [
+        { path: '', component: LoginComponent}  //No path raiz do projeto será direcionado para o componente de login 
+
+];
+
+Criar um objeto que tenha o login e senha que será enviado
+
+Criar diretorios src/resources/models
+
+Criar a classe de login: "RequestLogin"
+
+Criar a classe com os atributos que espelham o campo do Swagger (RequestLogin.ts)
+
+*Email
+*Senha
+
+---------------------------------------------------------------
+
+Codificar a classe LoginComponent.ts
+
+Iniciar a variável no NgOnInit
+
+Preencher no html os dados que o usuario digitar 
+
+[(ngModel)]="requestLogin.email"
+[(ngModel)]="requestLogin.senha"
+
+-----------------------------------------------------
+
+Importar no app.module.ts o FormsModule
+
+
+@NgModule({
+  declarations: [AppComponent, LoginComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    *FormsModule,*
+    AppRoutingModule,
+    CardModule,
+    InputTextModule,
+    ButtonModule,
+  ],
+
+  ======================================================
+
+  Invocar o método ao clicar no botao "Login"
+
+  Criar o método em: LoginComponent.ts ...
+
+    public doLogin() : void {
+
+    console.log(this.requestLogin);
+
+  }
+
+  ====================================================
+
+  *Consumindo o servico
+
+    Criar a pasta e o service na pasta resources
+
+    usar angular CLI para criar um service
+
+    n g g s login
+
+
+    Importar no app.module.ts:
+
+    "import { HttpClientModule } from '@angular/common/http';"
+    e no vetor de imports
+
+     HttpClientModule,
+
+    ==================================================
+
+
+  Configurar o botao
+
+   <div class="p-col-12">
+                    <button (click) = "doLogin()" pButton  type="button" label="Entrar" class="p-col-12"></button>
+                </div>
+
+                ===============================================
+
+
+
+1:58 -->Modelando janela "esqueci minha senha" - Aula 22 - 06/07/2021          
+
+
+
+Criando modulo da página home com controle de rotas --> ng g m dashboard --routing
+views/dashboard
+
+Criando componente Dashboard que fique no diretorio --> ng g c dashboard --flat
+
+
+
+Link para a documentação do lazyloading do angular
+
+https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbXZmNXJZLS1uUVpzcDhoQUxiUzUwYUcxUDc2UXxBQ3Jtc0ttdExyMUR6Q0hnZTdkd0FydzhjOWFJTDIxMHdyLS1NMW5uUU9yT1ZyRmhBTnNEeEY4MkEteVNXWFI4enB6a09LSE54UzdDRkxFS3lrQ2drT1dkWVhlaThic0ZocWs4d05LT3owSlZaMC1fSWxtTlFjUQ&q=https%3A%2F%2Fangular.io%2Fguide%2Flazy-loading-ngmodules
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

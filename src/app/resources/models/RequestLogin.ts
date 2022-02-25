@@ -1,7 +1,12 @@
 export class RequestLogin{
 
     public email: string;
-    public senha: senha;
+    public senha: string;
+
+
+
+
+
     
 
 }

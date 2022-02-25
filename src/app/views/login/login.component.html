@@ -1,4 +1,4 @@
-<div class="p-grid p-justify-center card">
+<div class="p-grid p-justify-center card" >
     <div class="p-col-10 p-sm-6 p-md-4">
         <p-card>
             <div class="p-grid">
@@ -8,19 +8,22 @@
                 </div>
                 <div class="p-col-12">
                     <label for="">Digite seu e-mail:</label>
-                    <input class="p-col-12" type="text" pInputText />
+                    <input [(ngModel)]="requestLogin.email" class="p-col-12" type="text" pInputText />
                 </div>
-                <div class="p-col-12">
+                <div class="p-col-12" >
                     <label for="">Digite sua Senha:</label>
-                    <input class="p-col-12" type="text" pInputText />
+                    <input [(ngModel)]="requestLogin.senha" class="p-col-12" type="password" pInputText />
                 </div>
+                
                 <div class="p-col-12">
-                    <label for="" style="color: red">*Esqueci minha senha*</label>
+                    <button (click) = "doLogin()" pButton  type="button" label="Entrar" class="p-col-12"></button>
                 </div>
-                <div class="p-col-12">
-                    <button pButton type="button" label="Entrar" class="p-col-12"></button>
+
+                <div class="p-col-12" >
+                       <a style="color: red;" href target="#">Esqueci minha senha!</a>
                 </div>
+               
             </div>
         </p-card>
     </div>
-</div>
+
