@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+
 import { RequestLogin } from '../models/RequestLogin';
 import { ResponseLogin } from '../models/ResponseLogin';
 
@@ -9,28 +10,21 @@ import { ResponseLogin } from '../models/ResponseLogin';
   providedIn: 'root',
 })
 export class LoginService {
-  
-  
-  //atributo
+
+
+  // URL API WEB
   endpoint = environment.apiUrl + '/auth';
-  
-  
-  constructor(private httpClient: HttpClient) {}
 
+  // INJEÇÃO DE DEPENDÊNCIA
+  constructor(private httpClient: HttpClient) { }
 
-  public doLogin(requestLogin: RequestLogin){
+  // AUTENTICANDO (CHAMADA DO MÉTODO)
+  public doLogin(requestLogin: RequestLogin) {
 
-    //passando os dados do formulário para o endpoint
-    const formData = new FormData();
-
-    formData.append('email', requestLogin.email);
-    formData.append('senha', requestLogin.senha);
-
-    return this.httpClient.post(this.endpoint,formData)
-    
-  }
-
-
-
+    //AUTENTICANDO DE FATO
+    return this.httpClient.post(this.endpoint, requestLogin)
 
   }
+
+
+}

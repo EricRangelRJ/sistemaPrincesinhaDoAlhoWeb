@@ -14,5 +14,13 @@ $font-color: #fff !important;
     text-align: center;
 }
 
+body {
+  background-image: url("assets/imagens/planofundoalho.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  opacity: 0.80;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
