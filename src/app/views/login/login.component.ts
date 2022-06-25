@@ -14,17 +14,17 @@ export class LoginComponent implements OnInit {
 
 
   //variável que diz se o usuário está logado....
- // isLoggedIn = true;
+  // isLoggedIn = true;
 
 
   //Salvando os dados do usuário autenticado
-   public responseLogin : ResponseLogin;
+  public responseLogin: ResponseLogin;
 
 
-   public requestLogin: RequestLogin;
+  public requestLogin: RequestLogin;
 
 
-    //injeção de dependencia..
+  //injeção de dependencia..
   constructor(
     private loginService: LoginService,
     private alertService: AlertService,
@@ -43,35 +43,34 @@ export class LoginComponent implements OnInit {
   //Método invocado pelo botão do formulário
   public doLogin(): void {
     //subscribe --> pegando o retorno da API
-    console.log(this.requestLogin)
 
     //Chamada ao endpoint
     this.loginService.doLogin(this.requestLogin).subscribe(
-    
+
       //Retorno positivo do login
       (data) => {
         //Gravar os dados do usuario em localStage(Sessao)
-        this.responseLogin = (data as any);        
-        
+        this.responseLogin = (data as any);
+
         //colocando os dados do objeto logado em sessao
-        localStorage.setItem("AUTH",JSON.stringify(this.responseLogin));
-        
+        localStorage.setItem("AUTH", JSON.stringify(this.responseLogin));
+
         //Recarregando a página após gravação dos dados em sessao
         this.alertService.info('Usuário autenticado com Sucesso!');
-        
+
         //configurando a rota de navegação caso o login seja de sucesso!
         //se recebeu o JWT
-          this.router.navigate(['dashboard']);
+        this.router.navigate(['dashboard']);
       },
       //Retorno negativo do login
       (httpError) => {
-        
-        if (httpError.status == 401) {
+
+        if (httpError.status == (400 || 401)) {
           this.alertService.error("Usuário ou senha inválidos.");
         }
         else {
           //Qualquer outro erro 
-          
+
           this.alertService.error("Ocorreu um erro inesperado, contato o suporte do sistema!");
         }
 
